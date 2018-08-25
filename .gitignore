@@ -1,4 +1,3 @@
 ethereum*/node_modules/
-data/*
-data/geth
-date/keystore
+data/geth/*
+data/keystore/*
