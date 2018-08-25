@@ -1,0 +1,23 @@
+{
+  "name": "ethereum-playground-back",
+  "version": "0.0.1",
+  "description": "Ethereum Playground back",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "keywords": [
+    "ethereum",
+    "playground",
+    "geth"
+  ],
+  "author": "Jair de Souza Junior",
+  "license": "MIT",
+  "dependencies": {
+    "bignumber.js": "^7.2.1",
+    "mosca": "^2.8.3",
+    "mqtt": "^2.18.3",
+    "web3": "^0.20.6"
+  }
+}

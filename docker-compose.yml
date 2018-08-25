@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  ethereum-node:
+    image: jairsjunior/ethereum-node
+    build: ./geth-node-mining
+    volumes: 
+     - $PWD/data:/usr/ethereum/data-private
+    ports:
+     - 8545:8545
+     - 8546:8546
+
+  ethereum-playground-back:
+    image: jairsjunior/ethereum-playground-back
+    build: ./ethereum-playground-back
+    links:
+     - ethereum-node
+    environment:
+     - ETH_NODE=ethereum-node
+    ports: 
+      - 3010:3010
+    depends_on:
+      - ethereum-node
+
+  ethereum-playground:
+    image: jairsjunior/ethereum-playground
+    build: ./ethereum-playground/react-app
+    environment:
+     - MQTT_PROTOCOL=ws
+     - MQTT_HOST=localhost
+     - MQTT_PORT=3010
+    #  - MQTT_CONTEXT=
+    # links:
+    #  - ethereum-playground-back:ethereum-playground-back
+    ports:
+     - "3000:2015"
+
